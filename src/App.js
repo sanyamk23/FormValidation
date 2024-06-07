@@ -1,18 +1,18 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Form from './Form';
 import Success from './Success';
-import ErrorBoundary from './ErrorBoundary';
+import './styles.css';
 
-const App = () => {
+function App() {
   return (
-    <ErrorBoundary>
+    <Router>
       <Routes>
         <Route path="/" element={<Form />} />
         <Route path="/success" element={<Success />} />
       </Routes>
-    </ErrorBoundary>
+    </Router>
   );
-};
+}
 
 export default App;

@@ -95,36 +95,37 @@ const Form = () => {
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
+        <h2>Registration Form</h2>
         <div>
           <label>First Name:</label>
           <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
-          {errors.firstName && <span>{errors.firstName}</span>}
+          {errors.firstName && <span className="error">{errors.firstName}</span>}
         </div>
         <div>
           <label>Last Name:</label>
           <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
-          {errors.lastName && <span>{errors.lastName}</span>}
+          {errors.lastName && <span className="error">{errors.lastName}</span>}
         </div>
         <div>
           <label>Username:</label>
           <input type="text" name="username" value={formData.username} onChange={handleChange} />
-          {errors.username && <span>{errors.username}</span>}
+          {errors.username && <span className="error">{errors.username}</span>}
         </div>
         <div>
           <label>Email:</label>
           <input type="email" name="email" value={formData.email} onChange={handleChange} />
-          {errors.email && <span>{errors.email}</span>}
+          {errors.email && <span className="error">{errors.email}</span>}
         </div>
         <div>
           <label>Password:</label>
           <input type={showPassword ? "text" : "password"} name="password" value={formData.password} onChange={handleChange} />
           <button type="button" onClick={() => setShowPassword(!showPassword)}>Show/Hide</button>
-          {errors.password && <span>{errors.password}</span>}
+          {errors.password && <span className="error">{errors.password}</span>}
         </div>
         <div>
           <label>Phone:</label>
           <input type="text" name="phone" value={formData.phone} onChange={handleChange} />
-          {errors.phone && <span>{errors.phone}</span>}
+          {errors.phone && <span className="error">{errors.phone}</span>}
         </div>
         <div>
           <label>Country:</label>
@@ -135,9 +136,9 @@ const Form = () => {
             <option value="Canada">Canada</option>
             {/* Add more options as needed */}
           </select>
-          {errors.country && <span>{errors.country}</span>}
+          {errors.country && <span className="error">{errors.country}</span>}
         </div>
-        <div>
+        <div className={`city-select ${formData.country ? 'show' : ''}`}>
           <label>City:</label>
           <select name="city" value={formData.city} onChange={handleChange}>
             <option value="">Select City</option>
@@ -164,17 +165,17 @@ const Form = () => {
               </>
             )}
           </select>
-          {errors.city && <span>{errors.city}</span>}
+          {errors.city && <span className="error">{errors.city}</span>}
         </div>
         <div>
-          <label>PAN No.:</label>
+          <label>PAN:</label>
           <input type="text" name="pan" value={formData.pan} onChange={handleChange} />
-          {errors.pan && <span>{errors.pan}</span>}
+          {errors.pan && <span className="error">{errors.pan}</span>}
         </div>
         <div>
-          <label>Aadhar No.:</label>
+          <label>Aadhar:</label>
           <input type="text" name="aadhar" value={formData.aadhar} onChange={handleChange} />
-          {errors.aadhar && <span>{errors.aadhar}</span>}
+          {errors.aadhar && <span className="error">{errors.aadhar}</span>}
         </div>
         <button type="submit" disabled={!isFormValid}>Submit</button>
       </form>

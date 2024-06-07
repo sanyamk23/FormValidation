@@ -1,25 +1,45 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import './styles.css';
 
 const Success = () => {
-  const location = useLocation();
-  const formData = location.state;
+  const { state } = useLocation();
+  const navigate = useNavigate();
 
   return (
-    <div>
-      <h1>Form Submitted Successfully!</h1>
-      <div>
-        <h2>Details:</h2>
-        <p><strong>First Name:</strong> {formData.firstName}</p>
-        <p><strong>Last Name:</strong> {formData.lastName}</p>
-        <p><strong>Username:</strong> {formData.username}</p>
-        <p><strong>Email:</strong> {formData.email}</p>
-        <p><strong>Phone:</strong> {formData.phone}</p>
-        <p><strong>Country:</strong> {formData.country}</p>
-        <p><strong>City:</strong> {formData.city}</p>
-        <p><strong>PAN No.:</strong> {formData.pan}</p>
-        <p><strong>Aadhar No.:</strong> {formData.aadhar}</p>
+    <div className="container">
+      <div className="success-message">
+        <h2>Success!</h2>
+        <p>Your form has been submitted successfully.</p>
       </div>
+      <div>
+        <strong>First Name:</strong> {state.firstName}
+      </div>
+      <div>
+        <strong>Last Name:</strong> {state.lastName}
+      </div>
+      <div>
+        <strong>Username:</strong> {state.username}
+      </div>
+      <div>
+        <strong>Email:</strong> {state.email}
+      </div>
+      <div>
+        <strong>Phone:</strong> {state.phone}
+      </div>
+      <div>
+        <strong>Country:</strong> {state.country}
+      </div>
+      <div>
+        <strong>City:</strong> {state.city}
+      </div>
+      <div>
+        <strong>PAN:</strong> {state.pan}
+      </div>
+      <div>
+        <strong>Aadhar:</strong> {state.aadhar}
+      </div>
+      <button onClick={() => navigate('/')}>Go Back</button>
     </div>
   );
 };
